@@ -1,0 +1,61 @@
+.header {
+    background-color: #c5c1c1;
+    color: #fff;
+    display: flex; /* Use flexbox layout */
+    align-items: center; /* Align items vertically */
+    justify-content: space-between; /* Space items evenly along the main axis */
+    padding: 10px 20px; /* Add padding for spacing */
+}
+
+.nav {
+    flex-grow: 1; /* Allow navigation to grow to fill available space */
+    display: flex; /* Use flexbox layout */
+    justify-content: flex-end; /* Align navigation items to the right */
+}
+
+.header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Use flexbox layout */
+    align-items: center; /* Align items vertically */
+}
+
+.header ul li {
+    margin-right: 20px;
+}
+
+.header ul li a {
+    color: #1a1818; /* Use a color value, such as hex, RGB, or color name */
+    text-decoration: none;
+    font-family: 'Righteous', sans-serif; /* Apply Righteous font to all navigation links */
+    font-size: large; /* Set font size for other navigation links */
+}
+
+/* Change the font color of navigation links on hover */
+.header ul li a:hover {
+    color: #b21204; /* Change font color on hover */
+    text-shadow: 0 0 5px rgb(255, 254, 254); /* Add shadow effect on hover */
+}
+
+.quotes {
+    font-size: x-large; /* Ensure the font size for "Quotes" link overrides other styles */
+    border: 2px solid #b21204; /* Add border around the "Quotes" link */
+    padding: 5px 10px; /* Add padding to create space around the text */
+    border-radius: 5px; /* Add border radius for rounded corners */
+    color:black;
+    text-decoration: none;
+    font-family: 'Righteous', sans-serif;
+}
+.quotes:hover {
+    color: #fcfbfb; /* Change font color on hover */
+    text-shadow: 0 0 5px rgb(253, 248, 248); /* Add shadow effect on hover */
+    background-color: #b21204;
+
+}
+@media only screen and (max-width: 600px) {
+    .header {
+        flex-direction: column; /* Stack items vertically on smaller screens */
+    }
+}
+
