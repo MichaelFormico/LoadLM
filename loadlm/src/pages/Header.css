@@ -57,5 +57,10 @@
     .header {
         flex-direction: column; /* Stack items vertically on smaller screens */
     }
+
+    .nav {
+        padding-left: 15px;
+        padding-top: 5px;
+    }
 }
 

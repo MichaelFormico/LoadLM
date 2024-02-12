@@ -1,0 +1,74 @@
+.quotes-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 100px;
+}
+
+.form-container {
+    width: 80%;
+    max-width: 500px;
+    padding: 20px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #ccc;
+}
+
+.quote-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.submit-btn {
+    background-color: #b21204;
+    color: #black;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-family: 'Righteous', sans-serif;
+}
+
+.submit-btn:hover {
+    color: #fcfbfb; /* Change font color on hover */
+    text-shadow: 0 0 5px rgb(253, 248, 248); /* Add shadow effect on hover */
+    background-color: #b21204;
+}
+
+.areas {
+    text-align: center;
+    color: #b21204;
+    font-family: 'Righteous', sans-serif;
+    font-size: x-large;
+}
+
+.fontcolor {
+    font-family: 'Righteous', sans-serif;
+    
+}
+
+.geta {
+    color:#b21204;
+    text-align: center;
+    font-size: xx-large;
+}
+
