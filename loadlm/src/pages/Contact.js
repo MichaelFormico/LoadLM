@@ -1,32 +1,40 @@
 import React from 'react';
 import gmailIcon from '../icons8-gmail-48.png';
-
-
-
-const logos = [
-  {
-    img: gmailIcon,
-    link: "mailto:michaelformico@gmail.com",
-    alt: "Gmail logo",
-    text: "Email",
-  },
-];
+import './Contact.css'; // Import the CSS file
 
 const Contact = () => {
   return (
-    <div className="my-8 flex flex-col items-center space-y-3">
-      <p className="text-teal font-custom">Check my links below!</p>
+    <div className="contact-container">
+      <p className="contact-text">
+        Are you having issues? Questions?
+      </p>
+      <p className="contact-text">
+        Please contact us!
+      </p>
 
-      {logos.map((logo, i) => (
-        <a key={i} href={logo.link} target="_blank" rel="noopener noreferrer" className="hover:scale-125 icons hover:rounded-lg transition-all ease-in-out flex items-center">
-          <img
-            className="object-scale-down h-10 w-auto"
-            src={logo.img}
-            alt={logo.alt}
-          />
-          <span className="text-teal font-custom ml-2">{logo.text}</span>
-        </a>
-      ))}
+      <div className="contact-box">
+        <p className="contact-title">Contact us by phone!</p>
+        <a className="phonecolor" href="tel:+14083163446">408-316-3446</a>
+        <p className="contact-title">Contact us by e-mail!</p>
+        <div className="contact-icons">
+          <a href="mailto:JR@loadlm.com" target="_blank" rel="noopener noreferrer">
+            <img
+              className="contact-icon"
+              src={gmailIcon}
+              alt="Gmail logo"
+            />
+            <span>JR</span>
+          </a>
+          <a href="mailto:gv@loadlm.com" target="_blank" rel="noopener noreferrer">
+            <img
+              className="contact-icon"
+              src={gmailIcon}
+              alt="Gmail logo"
+            />
+            <span>GV</span>
+          </a>
+        </div>
+      </div>
     </div>
   );
 }

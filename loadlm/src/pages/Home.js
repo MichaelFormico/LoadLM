@@ -1,14 +1,22 @@
 import React from 'react';
-
+import videoSource from '../Digital World Map.mp4';
+import './Home.css'; // Import your CSS file
 
 const Home = () => {
   return (
-    
-      <div className="flex justify-center items-center pt-20">
-          <div className="text-m font-extrabold text-teal max-w-xs font-custom">Born in 1991 in San Jose, California, I believe the future of the internet and its functionality is infinite. I am very excited to see what is in store for all of us.</div>
-        </div>
-   
+    <div className="video-background">
+      <h1 className="lm">L & M Logistics</h1>
+      <video autoPlay loop muted className="video">
+        <source src={videoSource} type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+      <div className="text-overlay">
+        <h2>Secure Sustainable Logistics</h2>
+        <p>Moving forward today to secure tomorrow</p>
+      </div>
+    </div>
   );
 };
 
 export default Home;
+

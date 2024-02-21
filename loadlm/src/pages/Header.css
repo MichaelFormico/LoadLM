@@ -1,11 +1,18 @@
-.header {
-    background-color: #c5c1c1;
+.logo {
+    position: relative; /* Ensure the logo respects z-index */
+    z-index: 2; /* Set a higher z-index to ensure it appears above the background */
+  }
+  
+  .header {
+    background-color: black;
     color: #fff;
-    display: flex; /* Use flexbox layout */
-    align-items: center; /* Align items vertically */
-    justify-content: space-between; /* Space items evenly along the main axis */
-    padding: 10px 20px; /* Add padding for spacing */
-}
+    position: relative; /* Ensure the header respects z-index */
+    z-index: 1; /* Set a z-index to ensure it appears behind the logo */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+  }
 
 .nav {
     flex-grow: 1; /* Allow navigation to grow to fill available space */
@@ -26,7 +33,7 @@
 }
 
 .header ul li a {
-    color: #1a1818; /* Use a color value, such as hex, RGB, or color name */
+    color: white; /* Use a color value, such as hex, RGB, or color name */
     text-decoration: none;
     font-family: 'Righteous', sans-serif; /* Apply Righteous font to all navigation links */
     font-size: large; /* Set font size for other navigation links */
@@ -43,7 +50,7 @@
     border: 2px solid #b21204; /* Add border around the "Quotes" link */
     padding: 5px 10px; /* Add padding to create space around the text */
     border-radius: 5px; /* Add border radius for rounded corners */
-    color:black;
+    color:white;
     text-decoration: none;
     font-family: 'Righteous', sans-serif;
 }

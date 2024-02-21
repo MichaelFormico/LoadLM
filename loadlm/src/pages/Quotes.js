@@ -47,7 +47,9 @@ const Quotes = () => {
           className="quote-form"
         >
           <h1 className="fontcolor geta">Get a Quote!</h1>
-          <h3 className="fontcolor">Please enter your information below to receive a quote.</h3>
+          <h3 className="fontcolor">
+            Please enter your information below to receive a quote.
+          </h3>
           <input
             type="hidden"
             name="_subject"
