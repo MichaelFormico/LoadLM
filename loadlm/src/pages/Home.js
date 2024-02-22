@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <div className="video-background">
       <h1 className="lm">L & M Logistics</h1>
-      <video autoPlay loop muted className="video">
+      <video autoPlay loop muted playsInline className="video">
         <source src={videoSource} type="video/mp4" />
         Your browser does not support the video tag.
       </video>

@@ -12,7 +12,7 @@ const Services = () => {
         </p>
       </div>
       <div className="video-container">
-        <video autoPlay loop muted className="video-overlay">
+        <video autoPlay loop muted playsInline className="video-overlay">
           <source src={videoSource} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
@@ -22,3 +22,4 @@ const Services = () => {
 };
 
 export default Services;
+
