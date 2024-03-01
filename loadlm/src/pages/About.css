@@ -1,0 +1,42 @@
+/* General styles */
+.about-container {
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .about-title {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    font-family: 'Righteous', sans-serif;
+    text-shadow: 0 0 20px #b21204;
+    font-size: xx-large;
+    color: white;
+    text-shadow: 0 0 20px #b21204;
+  }
+  
+  .about-description {
+    font-size: 1rem;
+    color: #ffffff; /* Gray color */
+    font-family: 'Righteous', sans-serif;
+    text-shadow: 0 0 20px #b21204;
+    margin-bottom: 2rem;
+    max-width: 50%; 
+    margin-left: auto; /* Center the element horizontally */
+  margin-right: auto;
+  }
+  
+  .about-image {
+    max-width: 100%; /* Ensure the image doesn't exceed the container width */
+    height: auto; /* Maintain aspect ratio */
+  }
+  
+  /* Media query for screens smaller than 768px (typical mobile devices) */
+  @media only screen and (max-width: 768px) {
+    
+  
+    .about-description {
+      max-width: 100%;
+    }
+  }
+  

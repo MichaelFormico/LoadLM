@@ -8,7 +8,7 @@ const Services = () => {
       <div className="text-container">
         <h1 className="title">Services</h1>
         <p className="description">
-          As the sun rose over the horizon, casting a warm glow on the landscape, a majestic elephant emerged from the dense jungle, its massive trunk reaching for a ripe banana hanging from a nearby tree. Meanwhile, a curious child sat cross-legged on the ground, typing away on a sleek laptop, immersed in the wonders of technology. The air was filled with the scent of freshly bloomed flowers, and the sound of chirping birds echoed through the serene forest. In the distance, a shimmering ocean stretched as far as the eye could see, its azure waters sparkling in the sunlight.
+        At L & M Logistics, we specialize in efficiently managing the journey of your products from their origin to their destination. Our dedicated team handles transportation logistics, warehouse operations, and customs clearance, ensuring swift and seamless delivery. With cutting-edge technology, we provide real-time visibility into your supply chain and offer personalized support to meet your unique needs. Trust us to deliver your products safely, on time, and with utmost care.
         </p>
       </div>
       <div className="video-container">

@@ -42,7 +42,7 @@ const Quotes = () => {
     <div className="quotes-container">
       <div className="form-container">
         <form
-          action="https://formspree.io/f/your_form_id"
+          action="https://formspree.io/f/mgegyrgn"
           method="POST"
           className="quote-form"
         >
@@ -72,7 +72,7 @@ const Quotes = () => {
             <label className="fontcolor">First Name</label>
             <input
               type="text"
-              name="name"
+              name="firstName"
               placeholder="First Name"
               value={formData.firstname}
               onChange={handleChange}
@@ -117,7 +117,7 @@ const Quotes = () => {
             <label className="fontcolor">Street Address</label>
             <input
               type="text"
-              name="streetAddress"
+              name="address"
               placeholder="Street Address"
               value={formData.streetAddress}
               onChange={handleChange}
@@ -128,7 +128,7 @@ const Quotes = () => {
             <label className="fontcolor">Street Address 2</label>
             <input
               type="text"
-              name="streetAddress2"
+              name="addressLine2"
               placeholder="Street Address 2"
               value={formData.streetAddress2}
               onChange={handleChange}
@@ -150,8 +150,8 @@ const Quotes = () => {
             <label className="fontcolor">State / Province</label>
             <input
               type="text"
-              name="state / province"
-              placeholder="State / Province"
+              name="state"
+              placeholder="State_Province"
               value={formData.state}
               onChange={handleChange}
               required
@@ -161,8 +161,8 @@ const Quotes = () => {
             <label className="fontcolor">Postal / Zip Code</label>
             <input
               type="text"
-              name="postal / zip code"
-              placeholder="Postal / Zip Code"
+              name="zipCode"
+              placeholder="Postal_Zip Code"
               value={formData.zipCode}
               onChange={handleChange}
               required
@@ -196,7 +196,7 @@ const Quotes = () => {
             <label className="fontcolor">Street Address</label>
             <input
               type="text"
-              name="streetAddressOrigin"
+              name="freightOriginAddress"
               placeholder="Street Address"
               value={formData.streetAddressOrigin}
               onChange={handleChange}
@@ -207,7 +207,7 @@ const Quotes = () => {
             <label className="fontcolor">Street Address 2</label>
             <input
               type="text"
-              name="streetAddress2Origin"
+              name="freightOriginAddressLine2"
               placeholder="Street Address 2"
               value={formData.streetAddress2Origin}
               onChange={handleChange}
@@ -218,7 +218,7 @@ const Quotes = () => {
             <label className="fontcolor">City</label>
             <input
               type="text"
-              name="cityOrigin"
+              name="freightOriginCity"
               placeholder="City"
               value={formData.cityOrigin}
               onChange={handleChange}
@@ -229,7 +229,7 @@ const Quotes = () => {
             <label className="fontcolor">State / Province</label>
             <input
               type="text"
-              name="state / provinceOrigin"
+              name="freightOriginState"
               placeholder="State / Province"
               value={formData.stateOrigin}
               onChange={handleChange}
@@ -240,7 +240,7 @@ const Quotes = () => {
             <label className="fontcolor">Postal / Zip Code</label>
             <input
               type="text"
-              name="postal / zip codeOrigin"
+              name="freightOriginZipCode"
               placeholder="Postal / Zip Code"
               value={formData.zipCodeOrigin}
               onChange={handleChange}
@@ -252,7 +252,7 @@ const Quotes = () => {
             <label className="fontcolor">Street Address</label>
             <input
               type="text"
-              name="streetAddressDest"
+              name="freightDestinationAddress"
               placeholder="Street Address"
               value={formData.streetAddressDest}
               onChange={handleChange}
@@ -263,7 +263,7 @@ const Quotes = () => {
             <label className="fontcolor">Street Address 2</label>
             <input
               type="text"
-              name="streetAddress2Dest"
+              name="freightDestinationAddressLine2"
               placeholder="Street Address 2"
               value={formData.streetAddress2Dest}
               onChange={handleChange}
@@ -274,7 +274,7 @@ const Quotes = () => {
             <label className="fontcolor">City</label>
             <input
               type="text"
-              name="cityDest"
+              name="freightDestinationCity"
               placeholder="City"
               value={formData.cityDest}
               onChange={handleChange}
@@ -285,7 +285,7 @@ const Quotes = () => {
             <label className="fontcolor">State / Province</label>
             <input
               type="text"
-              name="state / provinceDest"
+              name="freightDestinationState"
               placeholder="State / Province"
               value={formData.stateDest}
               onChange={handleChange}
@@ -296,7 +296,7 @@ const Quotes = () => {
             <label className="fontcolor">Postal / Zip Code</label>
             <input
               type="text"
-              name="postal / zip codeDest"
+              name="freightDestinationZipCode"
               placeholder="Postal / Zip Code"
               value={formData.zipCodeDest}
               onChange={handleChange}
@@ -330,7 +330,7 @@ const Quotes = () => {
             <label className="fontcolor">Additonal Information</label>
             <input
               type="text"
-              name="addInfo"
+              name="additionalInformation"
               placeholder="Additional Information"
               value={formData.addInfo}
               onChange={handleChange}
