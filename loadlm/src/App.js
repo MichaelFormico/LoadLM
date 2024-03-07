@@ -7,6 +7,8 @@ import About from './pages/About.js';
 import Quotes from './pages/Quotes.js';
 import Services from './pages/Services.js';
 import Footer from './pages/Footer.js';
+import LoginForm from './pages/Login.js';
+import Create from './pages/Create.js';
 import './App.css'; // Import your CSS file with the scrollable-container class
 
 const App = () => {
@@ -19,6 +21,8 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/login" element={<LoginForm />} />
+        <Route path="/create" element={<Create />} />
       </Routes>
       <Footer />
     </Router>

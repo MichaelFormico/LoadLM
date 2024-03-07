@@ -1,18 +1,95 @@
-@import url(//fonts.googleapis.com/css?family=Lato:300:400);
-
 .header {
+  background: linear-gradient(60deg, #000000 0%, #ee0001 100%);
+  color: #fff;
   position: relative;
-  text-align: center;
-  background: linear-gradient(60deg, #000000 0%, #b21204 100%);
-  color: white;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
   max-height: 250px;
+  max-width: 100%;
+}
+.header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.header ul li {
+  margin-right: 20px;
+}
+
+.header ul li a {
+  color: white;
+  text-decoration: none;
+  font-family: "Righteous", sans-serif;
+  font-size: large;
+}
+
+.header ul li a:hover {
+  color: #b21204;
+  text-shadow: 0 0 5px rgb(255, 254, 254);
 }
 
 .logo {
-  fill: white;
   padding-right: 15px;
   display: inline-block;
   vertical-align: middle;
+  position: relative;
+  z-index: 2;
+}
+
+.quotes {
+  font-size: x-large;
+  border: 2px solid #b21204;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: white;
+  text-decoration: none;
+  font-family: "Righteous", sans-serif;
+}
+.quotes:hover {
+  color: #fcfbfb;
+  text-shadow: 0 0 5px rgb(253, 248, 248);
+  background-color: #b21204;
+}
+.asc {
+  padding-top: 5px;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* Align nav items to the right */
+}
+
+.auth-link {
+  font-size: large;
+  border: 2px solid white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #b21204;
+  background-color: white;
+  text-decoration: none;
+  font-family: "Righteous", sans-serif;
+}
+.actbtns {
+  display: flex;
+  flex-direction: row; /* Arrange buttons horizontally */
+  justify-content: left; /* Center the buttons horizontally */
+  padding-top: 5px;
+}
+.actbtns > *:first-child {
+  margin-right: 10px; /* Adjust the value as needed */
+}
+
+.auth-link:hover {
+  background-color: #b21204;
+  color: white;
+  border: 2px solid white;
 }
 
 .inner-header {
@@ -21,17 +98,15 @@
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
+  justify-content: space-between; /* Align items to the left and right */
   align-items: center;
   text-align: center;
   margin-top: -100px;
 }
 
-.flex {
+.left-container {
   display: flex;
-  justify-content: center;
   align-items: center;
-  text-align: center;
 }
 
 .waves {
@@ -53,7 +128,7 @@
 }
 
 .parallax > use {
-  animation: move-forever 25s cubic-bezier(.55, .5, .45, .5) infinite;
+  animation: move-forever 25s cubic-bezier(0.55, 0.5, 0.45, 0.5) infinite;
 }
 
 .parallax > use:nth-child(1) {
@@ -87,21 +162,20 @@
 }
 
 @media (max-width: 768px) {
-    .inner-header {
-      flex-direction: column;
-      max-height: 250px;
-      margin-top: 10px;
-    }
-    .waves {
-      height: 40px;
-      min-height: 40px;
-    }
-  
-    h1 {
-      font-size: 24px;
-    }
-  
-    .nav {
-        padding-left: 15px;
-    }
+  .inner-header {
+    flex-direction: column;
+    max-height: 250px;
+    margin-top: 10px;
+  }
+  .waves {
+    height: 40px;
+    min-height: 40px;
+  }
+  h1 {
+    font-size: 18px;
+  }
+  .nav {
+    align-items: center;
+    padding-bottom: 40px;
+  }
 }

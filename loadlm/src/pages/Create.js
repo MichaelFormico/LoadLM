@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import "./Quotes.css";
+import "./Create.css";
 
-const Quotes = () => {
+const Create = () => {
   const [formData, setFormData] = useState({
     company: "",
     name: "",
@@ -21,14 +21,6 @@ const Quotes = () => {
     freightOriginCity: "",
     freightOriginState: "",
     freightOriginZipCode: "",
-    freightDestinationAddress: "",
-    freightDestinationAddressLine2: "",
-    freightDestinationCity: "",
-    freightDestinationState: "",
-    freightDestinationZipCode: "",
-    pickupDate: "",
-    deliveryDate: "",
-    additionalInformation: "",
   });
 
   const handleChange = (e) => {
@@ -39,16 +31,16 @@ const Quotes = () => {
   };
 
   return (
-    <div className="quotes-container">
-      <div className="quoteform-container">
+    <div className="create-container">
+      <div className="createform-container">
         <form
           action="https://formspree.io/f/mgegyrgn"
           method="POST"
-          className="quote-form"
+          className="create-form"
         >
-          <h1 className="quoteHeader">Get a Quote!</h1>
+          <h1 className="createHeader">Create an Account!</h1>
           <h3>
-            Please enter your information below to receive a quote.
+            Please enter your information below to receive a create an account. This information will be saved for future quotes.
           </h3>
           <input
             type="hidden"
@@ -56,10 +48,10 @@ const Quotes = () => {
             value="New Quote Form Submission"
           />
           <input type="hidden" name="_cc" value="montazuma4me@gmail.com" />
-          <div className="quote-group">
+          <div className="create-group">
             <label className="quote-label">Company</label>
             <input
-              className="quote-input"
+              className="create-input"
               type="text"
               name="company"
               placeholder="Company"
@@ -68,11 +60,11 @@ const Quotes = () => {
               required
             />
           </div>
-          <div className="quote-areas">Name</div>
-          <div className="quote-group">
-            <label className="quote-label">First Name</label>
+          <div className="create-areas">Name</div>
+          <div className="create-group">
+            <label className="create-label">First Name</label>
             <input
-              className="quote-input"
+              className="create-input"
               type="text"
               name="firstName"
               placeholder="First Name"
@@ -81,10 +73,10 @@ const Quotes = () => {
               required
             />
           </div>
-          <div className="quote-group">
-            <label className="quote-label">Last Name</label>
+          <div className="create-group">
+            <label className="create-label">Last Name</label>
             <input
-              className="quote-input"
+              className="create-input"
               type="text"
               name="lastName"
               placeholder="Last Name"
@@ -93,10 +85,10 @@ const Quotes = () => {
               required
             />
           </div>
-          <div className="quote-group">
-            <label className="quote-label">E-Mail</label>
+          <div className="create-group">
+            <label className="create-label">E-Mail</label>
             <input
-              className="quote-input"
+              className="create-input"
               type="text"
               name="email"
               placeholder="E-Mail"
@@ -105,10 +97,10 @@ const Quotes = () => {
               required
             />
           </div>
-          <div className="quote-group">
-            <label className="quote-label">Phone Number</label>
+          <div className="create-group">
+            <label className="create-label">Phone Number</label>
             <input
-              className="quote-input"
+              className="create-input"
               type="text"
               name="phone"
               placeholder="Phone Number"
@@ -117,11 +109,11 @@ const Quotes = () => {
               required
             />
           </div>
-          <div className="quote-areas">Address</div>
-          <div className="quote-group">
-            <label className="quote-label">Street Address</label>
+          <div className="create-areas">Address</div>
+          <div className="create-group">
+            <label className="create-label">Street Address</label>
             <input
-              className="quote-input"
+              className="create-input"
               type="text"
               name="address"
               placeholder="Street Address"
@@ -130,10 +122,10 @@ const Quotes = () => {
               required
             />
           </div>
-          <div className="quote-group">
-            <label className="quote-label">Street Address 2</label>
+          <div className="create-group">
+            <label className="create-label">Street Address 2</label>
             <input
-              className="quote-input"
+              className="create-input"
               type="text"
               name="addressLine2"
               placeholder="Street Address 2"
@@ -142,10 +134,10 @@ const Quotes = () => {
               required
             />
           </div>
-          <div className="quote-group">
-            <label className="quote-label">City</label>
+          <div className="create-group">
+            <label className="create-label">City</label>
             <input
-              className="quote-input"
+              className="create-input"
               type="text"
               name="city"
               placeholder="City"
@@ -154,10 +146,10 @@ const Quotes = () => {
               required
             />
           </div>
-          <div className="quote-group">
-            <label className="quote-label">State / Province</label>
+          <div className="create-group">
+            <label className="create-label">State / Province</label>
             <input
-              className="quote-input"
+              className="create-input"
               type="text"
               name="state"
               placeholder="State_Province"
@@ -166,10 +158,10 @@ const Quotes = () => {
               required
             />
           </div>
-          <div className="quote-group">
-            <label className="quote-label">Postal / Zip Code</label>
+          <div className="create-group">
+            <label className="create-label">Postal / Zip Code</label>
             <input
-              className="quote-input"
+              className="create-input"
               type="text"
               name="zipCode"
               placeholder="Postal_Zip Code"
@@ -178,7 +170,7 @@ const Quotes = () => {
               required
             />
           </div>
-          <button type="submit" className="quote-submit-btn">
+          <button type="submit" className="create-submit-btn">
             Submit
           </button>
         </form>
@@ -187,4 +179,4 @@ const Quotes = () => {
   );
 };
 
-export default Quotes;
+export default Create;

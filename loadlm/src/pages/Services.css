@@ -7,7 +7,7 @@
     color: white; /* Set text color */
   }
   
-  .text-container {
+  .servicestext {
     margin-top: 5%;
     padding: 20px;
     text-shadow: 0 0 20px #b21204;
@@ -16,14 +16,14 @@
   }
   
   
-  .video-container {
+  .servicesvideo-container {
     padding: 20px;
     display: flex;
     justify-content: center; /* Center the video horizontally */
     align-items: center; /* Center the video vertically */
   }
   
-  .title {
+  .servicestitle {
     font-size: xx-large;
     font-weight: bold;
     
@@ -31,14 +31,14 @@
     
   }
   
-  .description {
+  .servicesdescription {
     font-size: 18px;
     text-shadow: 0 0 20px #b21204;
     font-family: 'Righteous', sans-serif;
     text-align: center;
   }
   
-  .video-overlay {
+  .servicesvideo-overlay {
     margin-right: 5%;
     width: 100%; /* Make the video fill the container */
     height: auto;
@@ -48,7 +48,7 @@
     .services-container {
       grid-template-columns: 1fr; /* Single column layout */
     }
-    .video-overlay {
+    .servicesvideo-overlay {
         margin-right: 0%;
     }
   }

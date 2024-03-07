@@ -1,54 +1,56 @@
-.quotes-container {
+.create-container {
   display: flex;
   justify-content: center;
   align-items: center;
   margin-top: 20px;
   margin-bottom: 100px;
-  background-image: url("../whitetruck.avif"); 
+  background-image: url("../redbg.jpg"); 
   background-size: cover; 
   background-repeat: no-repeat; 
   background-position: top; 
   overflow: hidden;
-  height: 120vh;
+  height: 100vh;
 }
 
-.quoteform-container {
+.createform-container {
   margin-top: 20px; 
   margin-bottom: 20px;
   max-width: 500px;
   padding: 20px;
   border: 3px solid black;
   border-radius: 5px;
-  background-color: #ccc;
+  background-color: #ffffff;
   overflow-y: auto;
   max-height: 80vh;
   opacity: 0.9;
   font-family: "Righteous", sans-serif;
 }
 
-.quote-form {
+.create-form {
   display: flex;
   flex-direction: column;
 }
 
-.form-group {
+.create-group {
   margin-bottom: 20px;
 }
 
-.quote-label {
+.create-label {
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-.quote-input {
+.create-input {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 5px;
   width: 100%;
   box-sizing: border-box;
+  background-color: #ccc;
+  font-family: "Righteous", sans-serif;
 }
 
-.quote-submit-btn {
+.create-submit-btn {
   background-color: #b21204;
   color: #black;
   padding: 10px;
@@ -59,20 +61,21 @@
   font-family: "Righteous", sans-serif;
 }
 
-.quote-submit-btn:hover {
+.create-submit-btn:hover {
   color: #fcfbfb; 
   text-shadow: 0 0 5px rgb(253, 248, 248); 
   background-color: #b21204;
 }
 
-.quote-areas {
+.create-areas {
   text-align: center;
   color: #b21204;
   font-family: "Righteous", sans-serif;
   font-size: x-large;
 }
 
-.quoteHeader {
+
+.createHeader {
   color: #b21204;
   text-align: center;
   font-size: xx-large;

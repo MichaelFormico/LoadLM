@@ -3,8 +3,8 @@
     margin: 0 auto;
     padding: 20px;
     margin-top: 30px;
-    text-align: center; /* Center the content */
-    font-family: "Righteous", sans-serif; /* Apply font family to the whole container */
+    text-align: center; 
+    font-family: "Righteous", sans-serif; 
 }
 
 .contact-text {
