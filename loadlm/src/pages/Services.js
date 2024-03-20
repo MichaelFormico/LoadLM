@@ -1,6 +1,6 @@
 import React from 'react';
 import './Services.css'; // Import your CSS file
-import videoSource from '../Aerial Semi Truck Footage.mp4'; // Import your video file
+import videoSource from '../images/Aerial Semi Truck Footage.mp4'; // Import your video file
 
 const Services = () => {
   return (

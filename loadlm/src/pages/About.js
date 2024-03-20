@@ -1,6 +1,6 @@
 import React from 'react';
 import './About.css'; // Importing the CSS file
-import imageSrc from '../shakinghands.jpeg'; // Import your image file
+import imageSrc from '../images/shakinghands.jpeg'; // Import your image file
 
 const About = () => {
   return (

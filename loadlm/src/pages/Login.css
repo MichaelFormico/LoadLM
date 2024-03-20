@@ -4,7 +4,7 @@
   align-items: top;
   height: 100vh; 
   font-family: "Righteous", sans-serif;
-  background-image: url("../redbg.jpg"); 
+  background-image: url("../images/redbg.jpg"); 
   background-size: cover; 
   background-repeat: no-repeat; 
   background-position: top; 
@@ -24,7 +24,13 @@
 }
 
 .login-input {
-  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #ccc;
+  font-family: "Righteous", sans-serif;
 }
 
 .login-label {
@@ -45,7 +51,9 @@
 }
 
 .login-button:hover {
-  background-color: #0056b3;
+  color: #fcfbfb; 
+  text-shadow: 0 0 5px rgb(253, 248, 248); 
+  background-color: #b21204;
 }
 @media only screen and (max-width: 768px) {
   .loginContainer{

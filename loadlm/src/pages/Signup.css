@@ -2,9 +2,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 20px;
   margin-bottom: 100px;
-  background-image: url("../redbg.jpg"); 
+  background-image: url("../images/redbg.jpg"); 
   background-size: cover; 
   background-repeat: no-repeat; 
   background-position: top; 
@@ -52,7 +51,7 @@
 
 .create-submit-btn {
   background-color: #b21204;
-  color: #black;
+  color: white;
   padding: 10px;
   border: none;
   border-radius: 5px;

@@ -1,5 +1,5 @@
 import React from 'react';
-import videoSource from '../Digital World Map.mp4';
+import videoSource from '../images/Digital World Map.mp4';
 import './Home.css'; // Import your CSS file
 
 const Home = () => {

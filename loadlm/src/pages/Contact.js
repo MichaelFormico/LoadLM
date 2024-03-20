@@ -1,5 +1,5 @@
 import React from 'react';
-import gmailIcon from '../icons8-gmail-48.png';
+import gmailIcon from '../images/icons8-gmail-48.png';
 import './Contact.css'; // Import the CSS file
 
 const Contact = () => {

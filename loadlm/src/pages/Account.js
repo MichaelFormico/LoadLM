@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./Quotes.css";
+import "./Account.css";
 
-const Quotes = () => {
+const Account = () => {
   const [formData, setFormData] = useState({
     company: "",
     firstName: "",
@@ -81,16 +81,16 @@ const Quotes = () => {
   };
 
   return (
-    <div className="quotes-container">
+    <div className="account-container">
       <div className="quoteform-container">
         <form
           action="https://formspree.io/f/mgegyrgn"
           method="POST"
           className="quote-form"
         >
-          <h1 className="quoteHeader">Get a Quote!</h1>
+          <h1 className="quoteHeader">Edit Profile</h1>
           <h3>
-            Please enter your information below to receive a quote.
+            Please update any changes to your saved information here
           </h3>
           <input
             type="hidden"
@@ -220,122 +220,9 @@ const Quotes = () => {
               required
             />
           </div>
-          <div className="quote-areas btn-space">Product</div>
-          <div className="quote-group">
-            <label className="quote-label">Product</label>
-            <input
-              className="quote-input"
-              type="text"
-              name="product"
-              placeholder="Product"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="quote-group">
-            <label className="quote-label">Product Value</label>
-            <input
-              className="quote-input"
-              type="text"
-              name="productValue"
-              placeholder="Product Value"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="quote-areas btn-space">Destination Address</div>
-          <div className="quote-group">
-            <label className="quote-label">Freight Destination Address</label>
-            <input
-              className="quote-input"
-              type="text"
-              name="freightDestinationAddress"
-              placeholder="Freight Destination Address"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="quote-group">
-            <label className="quote-label">Freight Destination Address 2</label>
-            <input
-              className="quote-input"
-              type="text"
-              name="freightDestinationAddress2"
-              placeholder="Freight Destination Address 2"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="quote-group">
-            <label className="quote-label">Freight Destination City</label>
-            <input
-              className="quote-input"
-              type="text"
-              name="freightDestinationCity"
-              placeholder="Freight Destination City"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="quote-group">
-            <label className="quote-label">Freight Destination State</label>
-            <input
-              className="quote-input"
-              type="text"
-              name="freightDestinationState"
-              placeholder="Freight Destination State"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="quote-group">
-            <label className="quote-label">Freight Destination Zip Code</label>
-            <input
-              className="quote-input"
-              type="text"
-              name="freightDestinationZipCode"
-              placeholder="Freight Destination Zip Code"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="quote-areas btn-space">Additional Information</div>
-          <div className="quote-group">
-            <label className="quote-label">Pickup Date</label>
-            <input
-              className="quote-input"
-              type="text"
-              name="pickupDate"
-              placeholder="Pick Up Date"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="quote-group">
-            <label className="quote-label">Delivery Date</label>
-            <input
-              className="quote-input"
-              type="text"
-              name="deliveryDate"
-              placeholder="Delivery Date"
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <div className="quote-group">
-            <label className="quote-label">Additional Information</label>
-            <input
-              className="quote-input"
-              type="text"
-              name="additionalInformation"
-              placeholder="Additional Information"
-              onChange={handleChange}
-              required
-            />
-          </div>
           <div className="btn-space">
           <button type="submit" className="quote-submit-btn">
-            Submit
+            Submit Changes
           </button>
           </div>
         </form>
@@ -344,4 +231,4 @@ const Quotes = () => {
   );
 };
 
-export default Quotes;
+export default Account;
