@@ -1,10 +1,16 @@
 import { connect, Schema, model } from "mongoose";
-connect("mongodb://0.0.0.0:27017/react-login-tut")
+
+if (!process.env.MONGO_URI) {
+  console.log("MONGO_URI is not defined");
+  process.exit(1);
+}
+
+connect(process.env.MONGO_URI)
   .then(() => {
-    console.log("mongodb connected");
+    console.log("Successfully connected to mongodb");
   })
   .catch(() => {
-    console.log("failed");
+    console.log("Failed to connect to mongodb");
   });
 
 const newSchema = new Schema({

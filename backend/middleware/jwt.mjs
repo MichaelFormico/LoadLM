@@ -1,5 +1,5 @@
-import { verify } from "jsonwebtoken";
-import { findOne } from "../mongo.mjs";
+import jsonwebtoken from "jsonwebtoken";
+import collection from "../mongo.mjs";
 
 export async function validateToken(req, res, next) {
   console.log(req.cookies);
@@ -18,7 +18,7 @@ export async function validateToken(req, res, next) {
 
   const token = authenticationHeader.split(" ")[1]; // Bearer TOKENGOESHERE
 
-  verify(token, process.env.JWT_SECRET, async (err, data) => {
+  jsonwebtoken.verify(token, process.env.JWT_SECRET, async (err, data) => {
     if (err) {
       res.status(401).json({ error: "Token is not valid or expired" });
       return;
@@ -26,7 +26,7 @@ export async function validateToken(req, res, next) {
 
     req.user = data.data;
 
-    const user = await findOne({ token: token });
+    const user = await collection.findOne({ token: token });
     if (!user) {
       res.status(401).json({ error: "Token is not associated to any user" });
       return;

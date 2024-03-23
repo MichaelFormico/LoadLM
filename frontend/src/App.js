@@ -14,7 +14,7 @@ import './App.css';
 
 const App = () => {
   return (
-    <Router basename="/LoadLM"> {/* Set the basename to /LoadLM */}
+    <Router basename="/"> {/* Set the basename to / */}
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />

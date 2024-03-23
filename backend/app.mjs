@@ -1,18 +1,19 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express, { json, urlencoded } from "express";
-import { findOne, insertMany } from "./mongo.mjs";
+import colleciton from "./mongo.mjs";
 import cors from "cors";
 import crypto from "crypto"; // Import the crypto module
 import { compareSync, genSaltSync, hashSync } from "bcrypt";
-import { sign } from "jsonwebtoken";
-import { jwt as _jwt } from "./middleware/jwt.mjs";
-import utils from "./utils.mjs";
+import jsonwebtoken from "jsonwebtoken";
+import { validateToken } from "./middleware/jwt.mjs";
+import * as utils from "./utils.mjs";
 
 // Asaduzzaman Pavel
 // www.iampavel.dev
 // https://wa.me/+8801755655440
-// https://wise.com
 
-require("../ode_modules/dotenv/lib/main").config();
 const app = express();
 app.use(json());
 app.use(urlencoded({ extended: true }));
@@ -29,12 +30,12 @@ console.log("JWT Secret Key:", JWT_SECRET);
 
 // Endpoint to retrieve user data by email
 // Endpoint to retrieve user data by email
-app.post("/get-user-data", _jwt.validateToken, async (req, res) => {
+app.post("/get-user-data", validateToken, async (req, res) => {
   console.log("Received email:", req.user); // Log the email received
 
   console.log("auth user is", req.user);
   try {
-    const user = await findOne({ email: req.user.email });
+    const user = await colleciton.findOne({ email: req.user.email });
 
     if (user) {
       res.json(user); // Send user data if found
@@ -53,7 +54,7 @@ app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const user = await findOne({ email: email });
+    const user = await colleciton.findOne({ email: email });
     if (!user) {
       res.status(404).json({ error: "User not found" });
       return;
@@ -64,7 +65,7 @@ app.post("/login", async (req, res) => {
       return;
     }
 
-    const token = sign(
+    const token = jsonwebtoken.sign(
       {
         data: {
           email: user.email,
@@ -90,7 +91,6 @@ app.post("/login", async (req, res) => {
 
     user.token = token;
     await user.save();
-    // await collection.updateOne({ _id: user._id }, { token: token });
 
     res
       .cookie("token", token, {
@@ -106,7 +106,7 @@ app.post("/login", async (req, res) => {
 app.post("/reset-password", async (req, res) => {
   // send email to user with the link to reset password
   const { email } = req.body;
-  const user = await findOne({ email: req.user.email });
+  const user = await colleciton.findOne({ email: req.user.email });
   if (!user) {
     res.status(404).json({ error: "User not found" });
     return;
@@ -130,7 +130,7 @@ app.post("/reset-password", async (req, res) => {
 
 // Endpoint to verify the password reset token
 app.get("/reset/:token", async (req, res) => {
-  const user = await findOne({
+  const user = await colleciton.findOne({
     resetPasswordToken: req.params.token,
     resetPasswordExpires: { $gt: Date.now() },
   });
@@ -149,7 +149,7 @@ app.get("/reset/:token", async (req, res) => {
 app.post("/reset/:token", async (req, res) => {
   const { password, confirmpassword } = req.body;
 
-  const user = await findOne({
+  const user = await colleciton.findOne({
     resetPasswordToken: req.params.token,
     resetPasswordExpires: { $gt: Date.now() },
   });
@@ -176,9 +176,9 @@ app.post("/reset/:token", async (req, res) => {
   res.status(200).json({ message: "Password reset successful" });
 });
 
-app.post("/logout", _jwt.validateToken, async (req, res) => {
+app.post("/logout", validateToken, async (req, res) => {
   try {
-    const user = await findOne({ email: req.user.email });
+    const user = await colleciton.findOne({ email: req.user.email });
     if (!user) {
       res.json("notexist"); // Send a message if user does not exist
       return;
@@ -237,7 +237,7 @@ app.post("/signup", async (req, res) => {
   };
 
   try {
-    const check = await findOne({ email: email });
+    const check = await colleciton.findOne({ email: email });
 
     if (check) {
       res.status(400).json({ error: "User already exists" }); // Bad request if user already exists
@@ -251,7 +251,7 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-app.post("/user/update", _jwt.validateToken, async (req, res) => {
+app.post("/user/update", validateToken, async (req, res) => {
   const {
     email,
     company,
@@ -300,5 +300,5 @@ app.post("/user/update", _jwt.validateToken, async (req, res) => {
 });
 
 app.listen(8000, () => {
-  console.log("Port connected");
+  console.log("Serving on port 8000");
 });
