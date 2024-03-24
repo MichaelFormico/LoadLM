@@ -4,7 +4,6 @@ import { useNavigate } from "react-router-dom";
 import "./Signup.css";
 
 function Signup() {
-  
   const navigate = useNavigate();
   const [userData, setUserData] = useState({
     email: "",
@@ -35,16 +34,30 @@ function Signup() {
 
     try {
       const res = await axios.post("http://localhost:8000/signup", userData);
-      if (res.data === "exist") {
-        alert("User already exists");
-      } else if (res.data === "notexist") {
-        navigate("/login", { state: { id: userData.email } });
+      navigate("/login", { state: { id: userData.email } });
+    } catch (err) {
+      if (err.response == undefined && err.response.status == undefined) {
+        alert("An error occurred");
+        return;
       }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("An error occurred while signing up");
+
+      if (err.response.status >= 500) {
+        alert("An internal server error occurred");
+        return;
+      }
+
+      if (
+        err.response.data != undefined &&
+        err.response.data.error != undefined
+      ) {
+        alert(err.response.data.error);
+        return;
+      }
+
+      alert("An error occurred");
     }
   };
+
   return (
     <div className="create-container">
       <div className="createform-container">

@@ -1,18 +1,20 @@
+// Asaduzzaman Pavel
+// www.iampavel.dev
+// https://wa.me/+8801755655440
+
+console.log("Starting server...");
+
 import dotenv from "dotenv";
 dotenv.config();
 
 import express, { json, urlencoded } from "express";
-import colleciton from "./mongo.mjs";
+import collection from "./mongo.mjs";
 import cors from "cors";
-import crypto from "crypto"; // Import the crypto module
-import { compareSync, genSaltSync, hashSync } from "bcrypt";
+import crypto from "crypto";
+import * as bcrypt from "bcrypt";
 import jsonwebtoken from "jsonwebtoken";
 import { validateToken } from "./middleware/jwt.mjs";
 import * as utils from "./utils.mjs";
-
-// Asaduzzaman Pavel
-// www.iampavel.dev
-// https://wa.me/+8801755655440
 
 const app = express();
 app.use(json());
@@ -29,13 +31,12 @@ const JWT_SECRET = process.env.JWT_SECRET;
 console.log("JWT Secret Key:", JWT_SECRET);
 
 // Endpoint to retrieve user data by email
-// Endpoint to retrieve user data by email
-app.post("/get-user-data", validateToken, async (req, res) => {
+app.get("/get-user-data", validateToken, async (req, res) => {
   console.log("Received email:", req.user); // Log the email received
 
   console.log("auth user is", req.user);
   try {
-    const user = await colleciton.findOne({ email: req.user.email });
+    const user = await collection.findOne({ email: req.user.email });
 
     if (user) {
       res.json(user); // Send user data if found
@@ -48,19 +49,21 @@ app.post("/get-user-data", validateToken, async (req, res) => {
   }
 });
 
-app.get("/", cors(), (req, res) => {});
+app.get("/", cors(), (req, res) => {
+  res.json({ message: "Welcome to the API" });
+});
 
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const user = await colleciton.findOne({ email: email });
+    const user = await collection.findOne({ email: email });
     if (!user) {
       res.status(404).json({ error: "User not found" });
       return;
     }
 
-    if (compareSync(password, user.password) === false) {
+    if (bcrypt.compareSync(password, user.password) === false) {
       res.status(401).json({ error: "Invalid credentials" });
       return;
     }
@@ -106,7 +109,7 @@ app.post("/login", async (req, res) => {
 app.post("/reset-password", async (req, res) => {
   // send email to user with the link to reset password
   const { email } = req.body;
-  const user = await colleciton.findOne({ email: req.user.email });
+  const user = await collection.findOne({ email: email });
   if (!user) {
     res.status(404).json({ error: "User not found" });
     return;
@@ -114,23 +117,26 @@ app.post("/reset-password", async (req, res) => {
 
   user.resetPasswordToken = crypto.randomBytes(20).toString("hex");
   user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
-  user.save();
+  await user.save();
 
-  const link = `http://${req.headers.host}/reset/${user.resetPasswordToken}`;
+  const link = `${process.env.FRONTEND_URL}/reset/${user.resetPasswordToken}`;
   let text = `You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n`;
   text += `Please click on the following link, or paste this into your browser to complete the process:\n\n ${link}\n\n If you did not request this, please ignore this email and your password will remain unchanged.\n`;
 
-  if (utils.sendEmail(email, "Password Reset", text)) {
-    res.status(200).json({ message: "Email sent" });
+  try {
+    await utils.sendEmail(email, "Password Reset", text);
+    res.json({ message: "Password reset link sent successfully" });
+    return;
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({ error: "Internal server error" });
     return;
   }
-
-  res.status(500).json({ error: "Internal server error" });
 });
 
 // Endpoint to verify the password reset token
-app.get("/reset/:token", async (req, res) => {
-  const user = await colleciton.findOne({
+app.get("/change-password/:token", async (req, res) => {
+  const user = await collection.findOne({
     resetPasswordToken: req.params.token,
     resetPasswordExpires: { $gt: Date.now() },
   });
@@ -149,7 +155,7 @@ app.get("/reset/:token", async (req, res) => {
 app.post("/reset/:token", async (req, res) => {
   const { password, confirmpassword } = req.body;
 
-  const user = await colleciton.findOne({
+  const user = await collection.findOne({
     resetPasswordToken: req.params.token,
     resetPasswordExpires: { $gt: Date.now() },
   });
@@ -166,8 +172,8 @@ app.post("/reset/:token", async (req, res) => {
     return;
   }
 
-  const salt = genSaltSync(10);
-  const hash = hashSync(password, salt);
+  const salt = bcrypt.genSaltSync(10);
+  const hash = bcrypt.hashSync(password, salt);
   user.password = hash;
   user.resetPasswordToken = null;
   user.resetPasswordExpires = null;
@@ -178,7 +184,7 @@ app.post("/reset/:token", async (req, res) => {
 
 app.post("/logout", validateToken, async (req, res) => {
   try {
-    const user = await colleciton.findOne({ email: req.user.email });
+    const user = await collection.findOne({ email: req.user.email });
     if (!user) {
       res.json("notexist"); // Send a message if user does not exist
       return;
@@ -214,8 +220,8 @@ app.post("/signup", async (req, res) => {
     freightOriginZipCode,
   } = req.body;
 
-  const salt = genSaltSync(10);
-  const hash = hashSync(password, salt);
+  const salt = bcrypt.genSaltSync(10);
+  const hash = bcrypt.hashSync(password, salt);
 
   const data = {
     email: email,
@@ -237,17 +243,18 @@ app.post("/signup", async (req, res) => {
   };
 
   try {
-    const check = await colleciton.findOne({ email: email });
+    const check = await collection.findOne({ email: email });
 
     if (check) {
-      res.status(400).json({ error: "User already exists" }); // Bad request if user already exists
-    } else {
-      await insertMany([data]);
-      res.status(201).json({ message: "User created successfully" }); // Created status if user is successfully created
+      res.status(400).json({ error: "User already exists" });
+      return;
     }
+
+    await collection.insertMany([data]);
+    res.status(201).json({ message: "User created successfully" });
   } catch (error) {
     console.error("Error:", error);
-    res.status(500).json({ error: "Internal server error" }); // Internal server error if an error occurs
+    res.status(500).json({ error: "Internal server error" });
   }
 });
 
@@ -291,12 +298,11 @@ app.post("/user/update", validateToken, async (req, res) => {
 
   try {
     await user.save();
+    res.json({ message: "User updated successfully" });
   } catch (error) {
     console.error("Error:", error);
-    res.status(500).json({ error: "Internal server error" }); // Internal server error if an error occurs
+    res.status(500).json({ error: "Internal server error" });
   }
-
-  res.json({ message: "User updated successfully" });
 });
 
 app.listen(8000, () => {

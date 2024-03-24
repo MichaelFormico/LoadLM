@@ -24,14 +24,13 @@ export async function validateToken(req, res, next) {
       return;
     }
 
-    req.user = data.data;
-
-    const user = await collection.findOne({ token: token });
-    if (!user) {
+    try {
+      const user = await collection.findOne({ token: token });
+      req.user = user;
+      next();
+    } catch (error) {
       res.status(401).json({ error: "Token is not associated to any user" });
       return;
     }
-
-    next();
   });
 }

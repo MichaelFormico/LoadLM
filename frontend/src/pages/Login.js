@@ -57,6 +57,9 @@ function Login() {
         <button type="submit" className="login-button">
           Login
         </button>
+        <a className="resetpass" href="/reset-password">
+          Reset Password
+        </a>
       </form>
     </div>
   );
