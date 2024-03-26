@@ -25,24 +25,26 @@ const Quotes = () => {
   });
 
   useEffect(() => {
-    fetchUserData(); // Fetch user data from the backend API when the component mounts
-  }, []); // Empty dependency array ensures the effect runs only once, on mount
+    fetchUserData();
+  }, []);
 
   const fetchUserData = async () => {
     try {
-      const response = await axios.post("http://localhost:8000/get-user-data", {
-       
-        email: localStorage.getItem("email"), // Retrieve the user's email from local storage
-      },  {
-        headers: {
-          'Authentication': "Bearer " + localStorage.getItem('token')
+      const response = await axios.post(
+        "http://localhost:8000/get-user-data",
+        {
+          email: localStorage.getItem("email"), // Retrieve the user's email from local storage
         },
-      });
+        {
+          headers: {
+            Authentication: "Bearer " + localStorage.getItem("token"),
+          },
+        },
+      );
 
       const userData = response.data;
       console.log("User Data:", userData);
 
-      // Update the form data state with the retrieved user data
       setFormData({
         ...formData,
         company: userData.company || "", // Populate the company field if it exists, otherwise leave it blank
@@ -89,9 +91,7 @@ const Quotes = () => {
           className="quote-form"
         >
           <h1 className="quoteHeader">Get a Quote!</h1>
-          <h3>
-            Please enter your information below to receive a quote.
-          </h3>
+          <h3>Please enter your information below to receive a quote.</h3>
           <input
             type="hidden"
             name="_subject"
@@ -334,9 +334,9 @@ const Quotes = () => {
             />
           </div>
           <div className="btn-space">
-          <button type="submit" className="quote-submit-btn">
-            Submit
-          </button>
+            <button type="submit" className="quote-submit-btn">
+              Submit
+            </button>
           </div>
         </form>
       </div>

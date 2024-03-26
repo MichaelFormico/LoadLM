@@ -2,17 +2,18 @@
   display: flex;
   justify-content: center;
   align-items: top;
-  height: 100vh; 
+  height: 100vh;
   font-family: "Righteous", sans-serif;
-  background-image: url("../images/redbg.jpg"); 
-  background-size: cover; 
-  background-repeat: no-repeat; 
-  background-position: top; 
-  
+  background-image: url("../images/redbg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
 }
+
 .loginTitle {
   color: #b21204;
 }
+
 .login-form {
   background-color: #ffffff;
   border-radius: 8px;
@@ -51,15 +52,19 @@
 }
 
 .login-button:hover {
-  color: #fcfbfb; 
-  text-shadow: 0 0 5px rgb(253, 248, 248); 
+  color: #fcfbfb;
+  text-shadow: 0 0 5px rgb(253, 248, 248);
   background-color: #b21204;
 }
-@media only screen and (max-width: 768px) {
-  .loginContainer{
-padding-left: 20px;
-padding-right: 20px;
-padding-top: 20px;
-  }
-  
+
+.resetpass {
 }
+
+@media only screen and (max-width: 768px) {
+  .loginContainer {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+  }
+}
+

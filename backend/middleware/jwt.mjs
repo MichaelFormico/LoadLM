@@ -1,7 +1,7 @@
-const jwt = require("jsonwebtoken");
-const collection = require("../mongo");
+import jsonwebtoken from "jsonwebtoken";
+import collection from "../mongo.mjs";
 
-async function validateToken(req, res, next) {
+export async function validateToken(req, res, next) {
   console.log(req.cookies);
 
   const authenticationHeader = req.headers["authentication"];
@@ -18,23 +18,19 @@ async function validateToken(req, res, next) {
 
   const token = authenticationHeader.split(" ")[1]; // Bearer TOKENGOESHERE
 
-  jwt.verify(token, process.env.JWT_SECRET, async (err, data) => {
+  jsonwebtoken.verify(token, process.env.JWT_SECRET, async (err, data) => {
     if (err) {
       res.status(401).json({ error: "Token is not valid or expired" });
       return;
     }
 
-    req.user = data.data;
-
-    const user = await collection.findOne({ token: token });
-    if (!user) {
-        res.status(401).json({error: "Token is not associated to any user" });
-        return;
+    try {
+      const user = await collection.findOne({ token: token });
+      req.user = user;
+      next();
+    } catch (error) {
+      res.status(401).json({ error: "Token is not associated to any user" });
+      return;
     }
-
-
-    next();
   });
 }
-
-module.exports = { validateToken };
