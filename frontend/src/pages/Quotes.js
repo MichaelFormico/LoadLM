@@ -30,11 +30,8 @@ const Quotes = () => {
 
   const fetchUserData = async () => {
     try {
-      const response = await axios.post(
+      const response = await axios.get(
         "http://localhost:8000/get-user-data",
-        {
-          email: localStorage.getItem("email"), // Retrieve the user's email from local storage
-        },
         {
           headers: {
             Authentication: "Bearer " + localStorage.getItem("token"),

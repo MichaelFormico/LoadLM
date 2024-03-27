@@ -5,12 +5,14 @@ if (!process.env.MONGO_URI) {
   process.exit(1);
 }
 
+console.log(process.env.MONGO_URI)
+
 connect(process.env.MONGO_URI)
   .then(() => {
     console.log("Successfully connected to mongodb");
   })
-  .catch(() => {
-    console.log("Failed to connect to mongodb");
+  .catch((e) => {
+    console.log("Failed to connect to mongodb.", e);
   });
 
 const newSchema = new Schema({
