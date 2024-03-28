@@ -35,7 +35,7 @@ const ChangePassword = () => {
     return new Promise(async (resolve, reject) => {
       try {
         const res = await axios.get(
-          "http://localhost:8000/change-password/" + token,
+          `${process.env.REACT_APP_BACKEND_URL}/change-password/` + token
         );
 
         resolve(true);
@@ -50,8 +50,8 @@ const ChangePassword = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:8000/change-password/" + token,
-        userData,
+        `${process.env.REACT_APP_BACKEND_URL}/change-password/` + token,
+        userData
       );
 
       alert("Email has been sent");

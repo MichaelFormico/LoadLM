@@ -30,7 +30,7 @@ function Header() {
   // Function to handle logout
   const handleLogout = async () => {
     // Perform logout logic here (e.g., clear session, update state)
-    await axios.post("http://localhost:8000/logout", {}, {
+    await axios.post(`${process.env.REACT_APP_BACKEND_URL}/logout`, {}, {
       headers: {
         'Authentication': "Bearer " + localStorage.getItem('token')
       },

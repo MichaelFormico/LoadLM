@@ -30,11 +30,11 @@ const Account = () => {
 
   const fetchUserData = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/get-user-data", {
-        headers: {
-          authentication: "Bearer " + localStorage.getItem("token"),
-        },
-      });
+      const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/get-user-data`, {
+          headers: {
+            authentication: "Bearer " + localStorage.getItem("token"),
+          },
+        });
 
       const userData = response.data;
       setFormData({
@@ -72,13 +72,13 @@ const Account = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:8000/user/update",
+        `${process.env.REACT_APP_BACKEND_URL}/user/update`,
         formData,
         {
           headers: {
             authentication: "Bearer " + localStorage.getItem("token"),
           },
-        },
+        }
       );
       alert("Details has been updated successfully");
     } catch (err) {

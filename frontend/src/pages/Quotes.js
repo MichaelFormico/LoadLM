@@ -31,12 +31,12 @@ const Quotes = () => {
   const fetchUserData = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:8000/get-user-data",
+        `${process.env.REACT_APP_BACKEND_URL}/get-user-data`,
         {
           headers: {
             Authentication: "Bearer " + localStorage.getItem("token"),
           },
-        },
+        }
       );
 
       const userData = response.data;

@@ -33,7 +33,7 @@ function Signup() {
     e.preventDefault();
 
     try {
-      const res = await axios.post("http://localhost:8000/signup", userData);
+      const res = await axios.post(`${process.env.REACT_APP_BACKEND_URL}/signup`, userData);
       navigate("/login", { state: { id: userData.email } });
     } catch (err) {
       if (err.response == undefined && err.response.status == undefined) {

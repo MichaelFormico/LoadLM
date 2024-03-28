@@ -29,11 +29,14 @@ const UpdateUser = () => {
 
   const fetchUserData = async () => {
     try {
-      const response = await axios.post("http://localhost:8000/get-user-data", {
-        headers: {
-          Authentication: "Bearer " + localStorage.getItem("token"),
-        },
-      });
+      const response = await axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/get-user-data`,
+        {
+          headers: {
+            Authentication: "Bearer " + localStorage.getItem("token"),
+          },
+        }
+      );
 
       const userData = response.data;
       console.log("User Data:", userData);
@@ -71,8 +74,8 @@ const UpdateUser = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:8000/user/update",
-        userData,
+        `${process.env.REACT_APP_BACKEND_URL}/user/update`,
+        userData
       );
       alert("Details has been updated successfully");
     } catch (err) {

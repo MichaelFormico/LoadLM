@@ -19,8 +19,8 @@ function ResetPassword() {
 
     try {
       const res = await axios.post(
-        "http://localhost:8000/reset-password",
-        userData,
+        `${process.env.REACT_APP_BACKEND_URL}/reset-password`,
+        userData
       );
 
       alert("Email has been sent");
