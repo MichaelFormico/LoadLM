@@ -4,7 +4,6 @@
 
 console.log("Starting server...");
 
-
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -306,6 +305,6 @@ app.post("/user/update", validateToken, async (req, res) => {
   }
 });
 
-app.listen(8000, () => {
-  console.log("Serving on port 8000");
+app.listen(process.env.NODE_PORT, () => {
+  console.log("Serving on port " + process.env.NODE_PORT);
 });
