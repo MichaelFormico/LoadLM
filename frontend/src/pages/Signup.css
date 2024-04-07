@@ -8,6 +8,7 @@
   background-repeat: no-repeat; 
   background-position: top; 
   overflow: hidden;
+  font-family: "Exo 2", sans-serif;
   height: 100vh;
 }
 
@@ -22,7 +23,6 @@
   overflow-y: auto;
   max-height: 80vh;
   opacity: 0.9;
-  font-family: "Righteous", sans-serif;
 }
 
 .create-form {
@@ -46,7 +46,6 @@
   width: 100%;
   box-sizing: border-box;
   background-color: #ccc;
-  font-family: "Righteous", sans-serif;
 }
 
 .create-submit-btn {
@@ -57,7 +56,6 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
-  font-family: "Righteous", sans-serif;
 }
 
 .create-submit-btn:hover {
@@ -69,7 +67,6 @@
 .create-areas {
   text-align: center;
   color: #b21204;
-  font-family: "Righteous", sans-serif;
   font-size: x-large;
 }
 

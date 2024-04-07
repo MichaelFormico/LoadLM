@@ -1,5 +1,5 @@
 .header {
-  background: linear-gradient(60deg, #000000 0%, #ee0001 100%);
+  background: linear-gradient(60deg, #000000 0%, #f94449 100%);
   color: #fff;
   position: relative;
   z-index: 1;
@@ -9,6 +9,7 @@
   padding: 10px 20px;
   max-height: 250px;
   max-width: 100%;
+  font-family: 'Exo 2', Arial, sans-serif;
 }
 .header ul {
   list-style-type: none;
@@ -16,6 +17,14 @@
   padding: 0;
   display: flex;
   align-items: center;
+}
+.logoText {
+  font-size: 48px;
+  font-weight: bold;
+  color: white; /* Adjust the color as needed */
+  text-decoration: none; /* Remove underline */
+  padding-right: 5px;
+  padding-bottom: 5px;
 }
 
 .header ul li {
@@ -25,7 +34,6 @@
 .header ul li a {
   color: white;
   text-decoration: none;
-  font-family: "Righteous", sans-serif;
   font-size: large;
 }
 
@@ -49,7 +57,7 @@
   border-radius: 5px;
   color: white;
   text-decoration: none;
-  font-family: "Righteous", sans-serif;
+
 }
 .quotes:hover {
   color: #fcfbfb;
@@ -74,7 +82,7 @@
   color: #b21204;
   background-color: white;
   text-decoration: none;
-  font-family: "Righteous", sans-serif;
+
 }
 .actbtns {
   display: flex;

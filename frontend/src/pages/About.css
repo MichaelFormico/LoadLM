@@ -2,13 +2,13 @@
 .about-container {
     padding: 20px;
     text-align: center;
+    font-family: 'Exo 2', sans-serif;
   }
   
   .about-title {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 1rem;
-    font-family: 'Righteous', sans-serif;
     text-shadow: 0 0 20px #b21204;
     font-size: xx-large;
     color: white;
@@ -18,7 +18,7 @@
   .about-description {
     font-size: 1rem;
     color: #ffffff;
-    font-family: 'Righteous', sans-serif;
+   
     text-shadow: 0 0 20px #b21204;
     margin-bottom: 2rem;
     max-width: 50%; 

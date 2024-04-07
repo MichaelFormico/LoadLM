@@ -46,8 +46,8 @@ function Header() {
     <div className="header">
       <div className="inner-header flex">
         <div className="left-container">
-          <Link to="/">
-            <img src={logo} alt="Logo" className="logo" />
+          <Link to="/" className="logoText">
+            L&M Logistics
           </Link>
           <Link to="/quotes" className="quotes">
             Get a quote now!
@@ -113,7 +113,7 @@ function Header() {
             />
           </defs>
           <g className="parallax">
-            <use xlinkHref="#gentle-wave" x="48" y="0" fill="rgba(178,18,4,0.7)" />
+            <use xlinkHref="#gentle-wave" x="48" y="0" fill="rgba(249,68,73,0.7)" />
             <use xlinkHref="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)" />
             <use xlinkHref="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)" />
             <use xlinkHref="#gentle-wave" x="48" y="7" fill="#000000" />

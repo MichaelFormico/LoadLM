@@ -13,16 +13,16 @@
     height: 100%;
     object-fit: cover;
   }
-
+  
   .text-overlay {
     position: absolute;
+    font-family: 'Exo 2', sans-serif;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
     text-shadow: 0 0 20px #b21204;
-    font-family: 'Righteous', sans-serif;
   }
   
   .text-overlay h2 {

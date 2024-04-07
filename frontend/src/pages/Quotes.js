@@ -178,7 +178,6 @@ const Quotes = () => {
               placeholder="Street Address 2"
               value={formData.address2}
               onChange={handleChange}
-              required
             />
           </div>
           <div className="quote-group">
@@ -199,7 +198,7 @@ const Quotes = () => {
               className="quote-input"
               type="text"
               name="state"
-              placeholder="State_Province"
+              placeholder="State/Province"
               value={formData.state}
               onChange={handleChange}
               required
@@ -211,8 +210,68 @@ const Quotes = () => {
               className="quote-input"
               type="text"
               name="zipCode"
-              placeholder="Postal_Zip Code"
+              placeholder="Zip Code"
               value={formData.zipCode}
+              onChange={handleChange}
+              required
+            />
+          </div>
+            <div className="quote-areas btn-space">Origin Address</div>
+            <div className="quote-group">
+            <label className="quote-label">Origin Street Address</label>
+            <input
+              className="quote-input"
+              type="text"
+              name="originAddress"
+              placeholder="Origin Address"
+              value={formData.freightOriginAddress}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="quote-group">
+            <label className="quote-label">Origin Street Address 2</label>
+            <input
+              className="quote-input"
+              type="text"
+              name="originAddress2"
+              placeholder="Origin Street Address 2"
+              value={formData.freightOriginAddressLine2}
+              onChange={handleChange}
+            />
+          </div>
+          <div className="quote-group">
+            <label className="quote-label">Origin City</label>
+            <input
+              className="quote-input"
+              type="text"
+              name="originCity"
+              placeholder="Origin City"
+              value={formData.freightOriginCity}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="quote-group">
+            <label className="quote-label">Origin State</label>
+            <input
+              className="quote-input"
+              type="text"
+              name="originState"
+              placeholder="Origin State"
+              value={formData.freightOriginState}
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div className="quote-group">
+            <label className="quote-label">Origin Zip Code</label>
+            <input
+              className="quote-input"
+              type="text"
+              name="originZipCode"
+              placeholder="Origin Zip Code"
+              value={formData.freightOriginZipCode}
               onChange={handleChange}
               required
             />
@@ -260,7 +319,6 @@ const Quotes = () => {
               name="freightDestinationAddress2"
               placeholder="Freight Destination Address 2"
               onChange={handleChange}
-              required
             />
           </div>
           <div className="quote-group">
@@ -327,7 +385,6 @@ const Quotes = () => {
               name="additionalInformation"
               placeholder="Additional Information"
               onChange={handleChange}
-              required
             />
           </div>
           <div className="btn-space">
